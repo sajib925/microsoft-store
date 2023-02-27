@@ -1,7 +1,10 @@
-import Header from "./components/Header";
+import {useState} from "react";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
-import Sidebar from "./components/Sidebar";
-import {HiBars3} from "react-icons/hi2";
+
+{
+  /*all pages import here */
+}
+
 import {
   Home,
   Get_started,
@@ -28,60 +31,70 @@ import {
   Utilities_tools,
 } from "./pages";
 
+{
+  /* components import here */
+}
+
+import {Header, Sidebar, Heading} from "./components";
+
 function App() {
+  const [isSideMenu, setIsSideMenu] = useState(false);
+  const handleSidebarMenu = () => {
+    setIsSideMenu((isSideMenu) => !isSideMenu);
+  };
   return (
-    <div className="container mx-auto px-[16px]">
+    <div className="relative">
       <BrowserRouter>
         <Header />
-        <div className="flex justify-between">
-          <div className="md:w-[320px] md:pr-[42px]">
-            <Sidebar />
-          </div>
-          <div className="w-[100%]">
-            <div className="flex items-center justify-between md:hidden">
-              <div className="flex items-center gap-x-[12px] ">
-                <span className="">
-                  <HiBars3 size={16} />
-                </span>
-                <h1 className="">Apps</h1>
-              </div>
-              <input
-                type="text"
-                name=""
-                id=""
-                className="border-emerald-900 border-2"
-              />
+        <div className="container mx-auto px-[16px]">
+          <div className="lg:flex lg:justify-center  pt-[40px]">
+            <div
+              className={`lg:min-w-[320px] lg:pr-[42px] max-lg:fixed max-lg:top-[64px] max-lg:z-10 ease-in-out duration-500 max-lg:w-[320px] max-lg:h-full max-lg:bg-white ${
+                isSideMenu ? "left-0" : "-left-[100%] "
+              }`}
+            >
+              <Sidebar handleSidebarMenu={handleSidebarMenu} />
             </div>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/get_started" element={<Get_started />} />
-              <Route path="/get_started" element={<Get_started />} />
-              <Route path="/productivity" element={<Productivity />} />
-              <Route path="/windows_themes" element={<Windows_themes />} />
-              <Route path="/photo_video" element={<Photo_video />} />
+            <div className="max-w-[500px] sm:max-w-[550px] md:max-w-[700px] lg:max-w-[640px] xl:max-w-[814px] 2xl:max-w-[996px]">
+              <div className="lg:hidden pb-[14px]">
+                <Heading handleSidebarMenu={handleSidebarMenu} />
+              </div>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/get_started" element={<Get_started />} />
+                <Route path="/get_started" element={<Get_started />} />
+                <Route path="/productivity" element={<Productivity />} />
+                <Route path="/windows_themes" element={<Windows_themes />} />
+                <Route path="/photo_video" element={<Photo_video />} />
 
-              {/*categories */}
+                {/*categories */}
 
-              <Route path="/business" element={<Business />} />
-              <Route path="/developer_tools" element={<Developer_tools />} />
-              <Route path="/education" element={<Education />} />
-              <Route path="/entertainment" element={<Entertainment />} />
-              <Route path="/helth_fitness" element={<Helth_fitness />} />
-              <Route path="/kids_family" element={<Kids_family />} />
-              <Route path="/lifestyle" element={<Lifestyle />} />
-              <Route path="/multimedia_design" element={<Multimedia_design />} />
-              <Route path="/music" element={<Music />} />
-              <Route path="/newsweather" element={<Newsweather />} />
-              <Route path="/personal_finance" element={<Personal_finance />} />
-              <Route path="/personalisation" element={<Personalisation />} />
-              <Route path="/security" element={<Security />} />
-              <Route path="/shopping" element={<Shopping />} />
-              <Route path="/social" element={<Social />} />
-              <Route path="/sports" element={<Sports />} />
-              <Route path="/travel" element={<Travel />} />
-              <Route path="/utilities_tools" element={<Utilities_tools />} />
-            </Routes>
+                <Route path="/business" element={<Business />} />
+                <Route path="/developer_tools" element={<Developer_tools />} />
+                <Route path="/education" element={<Education />} />
+                <Route path="/entertainment" element={<Entertainment />} />
+                <Route path="/helth_fitness" element={<Helth_fitness />} />
+                <Route path="/kids_family" element={<Kids_family />} />
+                <Route path="/lifestyle" element={<Lifestyle />} />
+                <Route
+                  path="/multimedia_design"
+                  element={<Multimedia_design />}
+                />
+                <Route path="/music" element={<Music />} />
+                <Route path="/newsweather" element={<Newsweather />} />
+                <Route
+                  path="/personal_finance"
+                  element={<Personal_finance />}
+                />
+                <Route path="/personalisation" element={<Personalisation />} />
+                <Route path="/security" element={<Security />} />
+                <Route path="/shopping" element={<Shopping />} />
+                <Route path="/social" element={<Social />} />
+                <Route path="/sports" element={<Sports />} />
+                <Route path="/travel" element={<Travel />} />
+                <Route path="/utilities_tools" element={<Utilities_tools />} />
+              </Routes>
+            </div>
           </div>
         </div>
       </BrowserRouter>

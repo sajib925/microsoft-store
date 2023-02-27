@@ -5,17 +5,17 @@ import {CgProfile} from "react-icons/cg";
 
 const Header = () => {
   return (
-    <header className="py-[16px] sticky top-0 z-10">
-      <div className="container mx-auto">
+    <header className="py-[16px] sticky top-0 z-10 bg-white shadow-cardHoverShadow">
+      <div className="container mx-auto px-[16px]">
         <div className="flex justify-between items-center">
           <div className="">
             <Link to="/">
               <img className="max-w-[108px]" src={logo} alt="microsoft logo" />
             </Link>
           </div>
-          <div className="flex items-center">
+          <div className="max-sm:hidden">
             <ul className="flex items-center gap-x-[24px]">
-              <li className="m">
+              <li className="">
                 <Link
                   to="/"
                   className="text-navLink font-notoSans font-normal text-[16px] relative before:absolute before:-bottom-[5px] before:h-[2px] before:w-0 hover:before:w-[100%] before:bg-navLink before:ease-in-out before:duration-300"
@@ -37,7 +37,7 @@ const Header = () => {
             <span className="text-navLink font-notoSans font-normal text-[16px] hidden md:block">
               Sign In
             </span>
-            <span className="text-gray-300">
+            <span className="text-signUpIcon">
               <CgProfile size={32} />
             </span>
           </div>

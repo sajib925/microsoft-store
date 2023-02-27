@@ -2,3 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.card:hover .card__btn {
+  display: block;
+}
+.card:hover .card__price {
+  display: none;
+}
+.top__card:hover .top__card__title::before {
+  width: 100%;
+}
+
+.swiper-button-next {
+  right: 25px;
+}

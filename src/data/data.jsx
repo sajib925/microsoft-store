@@ -21,7 +21,7 @@ import linkImg19 from "../images/sidebar/shopping.svg";
 export const links = {
   links: [
     {
-      // link: ,
+      link: "",
       name: "Home",
       icon: linkImg1,
     },
